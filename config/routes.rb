@@ -1,13 +1,29 @@
 Rails.application.routes.draw do
-  get 'pictures' => 'pictures#index'
+  root 'pictures#index'
 
-  post 'pictures' => 'pictures#create' # this is a new line of code
-  get 'pictures/new' => 'pictures#new' # this is also a new line of code
-
-  get 'pictures/:id' => 'pictures#show'
-  # Ignore the comments below for now
-  # They are just documentation
+  resources :pictures
 end
+
+
+# Rails.application.routes.draw do
+#   root 'pictures#index'
+
+# post 'pictures' => "pictures#create"
+
+#   get 'pictures' => 'pictures#index'
+#   get 'pictures/new' => 'pictures#new' 
+#   get 'pictures/:id/edit' => "pictures#edit", as: "edit_picture"
+#     get 'pictures/:id' => 'pictures#show'as: 'picture'
+
+#   #patch 'pictures/:id' => "pictures#update"
+#  # delete 'pictures/:id' => 'pictures#destroy', as: "delete_picture"
+
+
+
+# end
+
+
+  # Ignore the comments below for now
 
 
 
