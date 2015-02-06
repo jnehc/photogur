@@ -1,21 +1,12 @@
-<h1>Pictures (<%= @pictures.length %>)</h1>
-<%= link_to "New Picture", "/pictures/new" %>
+<h1>Most recent pictures</h1>
+<%= link_to "New Pictures", "#{pictures_url}/new" %>
 
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to image_tag(picture.url), "/pictures/#{picture.id}" %>
-<% end %>
-
-<!-- image_tag to render picture, pass in the picture URL -->
-
-
-
+<ul>
+	<% @most_recent_five.each do |picture|  %>
+		<li><%= picture.title %></li>
+	<% end %></ul>
+	<p>
+	Past Picture Count: <%= Picture.created_before(@created_before).count %>
+	<p>
 
 
-
-<!-- <h1>Pictures</h1>
-
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <img src="<%= picture.url %>">
-<% end %> -->
